@@ -5,13 +5,16 @@ import { AuthProvider } from '@/context/AuthContext';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Toaster } from 'react-hot-toast';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
+const siteUrl = 'https://careerconnect-orpin.vercel.app';
+
 export const metadata: Metadata = {
-  title: 'CareerConnect — Job & Internship Portal',
+  title: 'CareerConnect – Find Jobs & Internships',
   description:
-    'Connect with top companies and discover opportunities that match your skills. Find your dream job or hire exceptional talent.',
+    'Find your dream job or internship. Connect with top companies, apply in seconds, and build your career on CareerConnect.',
   keywords: [
     'jobs',
     'internships',
@@ -21,31 +24,76 @@ export const metadata: Metadata = {
     'job portal',
     'Nepal jobs',
     'tech jobs',
+    'student jobs',
+    'graduate jobs',
   ],
   authors: [{ name: 'CareerConnect' }],
+  metadataBase: new URL(siteUrl),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: 'CareerConnect — Job & Internship Portal',
+    title: 'CareerConnect – Find Jobs & Internships',
     description:
-      'Connect with top companies and discover opportunities that match your skills.',
-    url: 'https://careerconnect-orpin.vercel.app',
+      'Find your dream job or internship. Connect with top companies and build your career.',
+    url: siteUrl,
     siteName: 'CareerConnect',
     type: 'website',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CareerConnect — Job & Internship Portal',
+    title: 'CareerConnect – Find Jobs & Internships',
     description:
-      'Connect with top companies and discover opportunities that match your skills.',
+      'Find your dream job or internship. Connect with top companies and build your career.',
+  },
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
   },
   other: {
     'google-site-verification': '8V9h_v_4zuMte3CTgM1vdv70nQPxUh7WfFTlNtiC2kk',
   },
 };
 
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'CareerConnect',
+  url: siteUrl,
+  logo: `${siteUrl}/logo.png`,
+  description:
+    'Nepal\'s leading job and internship portal connecting students with top companies.',
+  sameAs: [],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'support@careerconnect.com',
+    contactType: 'customer service',
+  },
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XXXXXXXXXX');
+          `}
+        </Script>
+      </head>
       <body className={inter.className}>
         <Toaster
           position="top-right"

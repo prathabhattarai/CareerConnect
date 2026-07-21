@@ -9,7 +9,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-900" />
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+        <div className="absolute inset-0 opacity-10 pattern-dots" style={{ backgroundSize: '40px 40px' }} />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-semibold px-4 py-2 rounded-full mb-8">
@@ -204,7 +204,7 @@ export default function HomePage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-br from-primary-600 to-primary-800 rounded-3xl p-10 md:p-16 text-center relative overflow-hidden">
-            <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+            <div className="absolute inset-0 opacity-5 pattern-dots-sm" style={{ backgroundSize: '32px 32px' }} />
             <div className="relative">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">Ready to start your career journey?</h2>
               <p className="text-primary-100/80 mb-8 text-lg">Join thousands of students and companies already on CareerConnect</p>
@@ -217,6 +217,58 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SEO Content Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-surface-900 mb-6">Your Gateway to Career Success</h2>
+          <div className="prose prose-slate max-w-none text-surface-600 leading-relaxed space-y-4 text-sm">
+            <p>
+              CareerConnect is a comprehensive job and internship platform designed to bridge the gap between
+              education and employment. Whether you are a student looking for your first internship, a recent
+              graduate searching for entry-level positions, or a company seeking talented individuals,
+              CareerConnect provides the tools and connections you need to succeed.
+            </p>
+            <p>
+              Our platform features thousands of verified job listings across multiple industries including
+              technology, design, marketing, finance, engineering, healthcare, and education. Each listing is
+              reviewed by our team to ensure authenticity and quality, so you can apply with confidence.
+            </p>
+            <p>
+              For students, CareerConnect offers a streamlined application process. Create your profile,
+              showcase your skills and experience, upload your resume, and start applying to opportunities
+              that match your qualifications. Track your applications in real-time, receive interview
+              invitations, and get hired faster than ever before.
+            </p>
+            <p>
+              For companies, CareerConnect provides a powerful hiring dashboard. Post job listings, review
+              applications from qualified candidates, schedule interviews, and manage your entire recruitment
+              pipeline from one centralized platform. Our smart matching algorithm helps you discover
+              candidates who are the perfect fit for your open roles.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-surface-50">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-surface-900 mb-8 text-center">Frequently Asked Questions</h2>
+          <div className="space-y-4">
+            {[
+              { q: 'Is CareerConnect free for students?', a: 'Yes, CareerConnect is completely free for students. You can create a profile, browse jobs, and apply to unlimited positions at no cost.' },
+              { q: 'How do I apply for jobs on CareerConnect?', a: 'Simply create a student account, complete your profile with your skills and experience, upload your resume, and click "Apply Now" on any job listing that interests you.' },
+              { q: 'Can companies post jobs for free?', a: 'Yes, companies can post job listings and browse candidate profiles at no cost. We believe in making hiring accessible for businesses of all sizes.' },
+              { q: 'How does the matching algorithm work?', a: 'Our smart matching system analyzes your skills, experience level, location preferences, and career interests to suggest the most relevant job opportunities for you.' },
+            ].map((faq) => (
+              <div key={faq.q} className="bg-white rounded-xl p-5 shadow-sm">
+                <h3 className="font-semibold text-surface-900 mb-2">{faq.q}</h3>
+                <p className="text-sm text-surface-600 leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

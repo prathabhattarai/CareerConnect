@@ -136,6 +136,12 @@
   .animate-fade-in {
     animation: fadeIn 0.3s ease-out;
   }
+  .pattern-dots {
+    background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0);
+  }
+  .pattern-dots-sm {
+    background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0);
+  }
 }
 
 @keyframes fadeIn {

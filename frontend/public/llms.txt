@@ -1,0 +1,25 @@
+# CareerConnect
+
+> CareerConnect is Nepal's leading job and internship portal connecting students with top companies.
+
+CareerConnect is a full-stack web application built with Next.js, FastAPI, and MySQL. It provides a platform for students to find jobs and internships, and for companies to post opportunities and hire talent.
+
+## Features
+- Student and Company registration and authentication
+- Job listing with advanced search and filtering
+- Application tracking and interview scheduling
+- Resume upload and profile management
+- Company dashboard with hiring analytics
+- Real-time notifications
+
+## Pages
+- Home: https://careerconnect-orpin.vercel.app
+- Jobs: https://careerconnect-orpin.vercel.app/jobs
+- About: https://careerconnect-orpin.vercel.app/about
+- Contact: https://careerconnect-orpin.vercel.app/contact
+- Login: https://careerconnect-orpin.vercel.app/login
+- Register: https://careerconnect-orpin.vercel.app/register
+
+## API
+- Backend: https://careerconnect-ixi8.onrender.com/api
+- Documentation: https://careerconnect-ixi8.onrender.com/docs
