@@ -53,7 +53,7 @@ export default function JobCard({ job }: JobCardProps) {
         <div className="flex items-start gap-4">
           <div className="h-12 w-12 bg-primary-50 rounded-xl flex items-center justify-center flex-shrink-0 ring-1 ring-primary-100">
             {job.company?.logo ? (
-              <img src={job.company.logo} alt="" className="h-12 w-12 rounded-xl object-cover" />
+              <img src={job.company.logo} alt={`${job.company.company_name} logo`} className="h-12 w-12 rounded-xl object-cover" />
             ) : (
               <HiOutlineBriefcase className="h-5 w-5 text-primary-500" />
             )}

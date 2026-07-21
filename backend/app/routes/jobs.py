@@ -1,9 +1,10 @@
 import math
+from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 from sqlalchemy import func, or_
 from app.core.database import get_db
-from app.core.security import get_current_user, get_current_company
+from app.core.security import get_current_user, get_current_company, get_optional_user
 from app.models.user import User
 from app.models.job import Job
 from app.models.job_skill import JobSkill
@@ -65,7 +66,7 @@ def list_jobs(
     location: str = Query(None),
     status: str = Query("active"),
     db: Session = Depends(get_db),
-    current_user: User = Depends(get_current_user),
+    current_user: Optional[User] = Depends(get_optional_user),
 ):
     query = db.query(Job)
 
@@ -106,7 +107,7 @@ def list_jobs(
     unique_jobs = list({j.id: j for j in jobs}.values())
 
     return JobListResponse(
-        jobs=[build_job_response(j, db, current_user.id) for j in unique_jobs],
+        jobs=[build_job_response(j, db, current_user.id if current_user else None) for j in unique_jobs],
         total=total, page=page, per_page=per_page, total_pages=total_pages,
     )
 
@@ -139,7 +140,7 @@ def get_recommendations(
 def get_job(
     job_id: int,
     db: Session = Depends(get_db),
-    current_user: User = Depends(get_current_user),
+    current_user: Optional[User] = Depends(get_optional_user),
 ):
     job = db.query(Job).filter(Job.id == job_id).first()
     if not job:
@@ -149,7 +150,7 @@ def get_job(
     db.commit()
     db.refresh(job)
 
-    return build_job_response(job, db, current_user.id)
+    return build_job_response(job, db, current_user.id if current_user else None)
 
 
 @router.post("", response_model=JobResponse)

@@ -2,8 +2,8 @@ from datetime import datetime, timedelta
 from typing import Optional
 import bcrypt
 from jose import JWTError, jwt
-from fastapi import Depends, HTTPException, status
-from fastapi.security import OAuth2PasswordBearer
+from fastapi import Depends, HTTPException, status, Query
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 from app.core.config import get_settings
 from app.core.database import get_db
@@ -85,3 +85,22 @@ async def get_current_company(current_user=Depends(get_current_user)):
             detail="Not authorized as company"
         )
     return current_user
+
+
+async def get_optional_user(
+    authorization: Optional[str] = Depends(OAuth2PasswordBearer(tokenUrl="/api/auth/login", auto_error=False)),
+    db: Session = Depends(get_db),
+):
+    from app.models.user import User
+    if not authorization:
+        return None
+    try:
+        payload = jwt.decode(authorization, settings.JWT_SECRET_KEY, algorithms=[settings.JWT_ALGORITHM])
+        sub = payload.get("sub")
+        if sub is None:
+            return None
+        user_id = int(sub)
+    except (JWTError, ValueError):
+        return None
+    user = db.query(User).filter(User.id == user_id).first()
+    return user

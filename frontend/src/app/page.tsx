@@ -159,7 +159,7 @@ export default function HomePage() {
             <div>
               <p className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-3">Benefits</p>
               <h2 className="text-3xl md:text-4xl font-bold text-surface-900 tracking-tight mb-6">Why professionals choose CareerConnect</h2>
-              <p className="text-surface-500 mb-8 leading-relaxed">We provide the tools and connections you need to accelerate your career or find the perfect candidate.</p>
+              <p className="text-surface-500 mb-8 leading-relaxed">We provide the tools and connections you need to accelerate your career or find the perfect candidate. <Link href="/about" className="text-primary-600 hover:text-primary-700 font-medium">Learn more about our mission</Link>.</p>
               <div className="space-y-4">
                 {[
                   'Real-time application tracking',
@@ -221,20 +221,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-white border-t border-surface-100 py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-2.5">
-              <div className="h-7 w-7 bg-primary-600 rounded-lg flex items-center justify-center">
-                <HiOutlineBriefcase className="h-3.5 w-3.5 text-white" />
-              </div>
-              <span className="font-bold text-surface-900">CareerConnect</span>
-            </div>
-            <p className="text-sm text-surface-400">&copy; 2025 CareerConnect. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

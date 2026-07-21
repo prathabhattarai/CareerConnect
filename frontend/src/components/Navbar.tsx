@@ -64,6 +64,12 @@ export default function Navbar() {
               <Link href="/jobs" className="px-4 py-2 text-sm font-medium text-surface-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-all">
                 Find Jobs
               </Link>
+              <Link href="/about" className="px-4 py-2 text-sm font-medium text-surface-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-all">
+                About
+              </Link>
+              <Link href="/contact" className="px-4 py-2 text-sm font-medium text-surface-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-all">
+                Contact
+              </Link>
               {dashboardLink && (
                 <Link href={dashboardLink} className="px-4 py-2 text-sm font-medium text-surface-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-all">
                   Dashboard
@@ -162,6 +168,12 @@ export default function Navbar() {
             <Link href="/jobs" className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-surface-700 hover:bg-primary-50 hover:text-primary-600 rounded-xl transition-all" onClick={() => setMobileMenuOpen(false)}>
               Find Jobs
             </Link>
+            <Link href="/about" className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-surface-700 hover:bg-primary-50 hover:text-primary-600 rounded-xl transition-all" onClick={() => setMobileMenuOpen(false)}>
+              About
+            </Link>
+            <Link href="/contact" className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-surface-700 hover:bg-primary-50 hover:text-primary-600 rounded-xl transition-all" onClick={() => setMobileMenuOpen(false)}>
+              Contact
+            </Link>
             <div className="border-t border-surface-100 pt-3 mt-2 space-y-2">
               <Link href="/login" className="flex items-center justify-center w-full px-4 py-3 text-sm font-semibold text-surface-700 border border-surface-200 rounded-xl hover:bg-surface-50 transition-all" onClick={() => setMobileMenuOpen(false)}>
                 Sign In
@@ -180,6 +192,12 @@ export default function Navbar() {
           <div className="px-4 py-4 space-y-1">
             <Link href="/jobs" className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-surface-700 hover:bg-primary-50 hover:text-primary-600 rounded-xl transition-all" onClick={() => setMobileMenuOpen(false)}>
               Find Jobs
+            </Link>
+            <Link href="/about" className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-surface-700 hover:bg-primary-50 hover:text-primary-600 rounded-xl transition-all" onClick={() => setMobileMenuOpen(false)}>
+              About
+            </Link>
+            <Link href="/contact" className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-surface-700 hover:bg-primary-50 hover:text-primary-600 rounded-xl transition-all" onClick={() => setMobileMenuOpen(false)}>
+              Contact
             </Link>
             {dashboardLink && (
               <Link href={dashboardLink} className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-surface-700 hover:bg-primary-50 hover:text-primary-600 rounded-xl transition-all" onClick={() => setMobileMenuOpen(false)}>

@@ -149,7 +149,7 @@ export default function JobDetailPage() {
             <div className="flex items-start gap-4 mb-6">
               <div className="h-14 w-14 bg-primary-50 rounded-2xl flex items-center justify-center flex-shrink-0 ring-1 ring-primary-100">
                 {job.company?.logo ? (
-                  <img src={job.company.logo} alt="" className="h-14 w-14 rounded-2xl object-cover" />
+                  <img src={job.company.logo} alt={`${job.company.company_name} logo`} className="h-14 w-14 rounded-2xl object-cover" />
                 ) : (
                   <HiOutlineBriefcase className="h-6 w-6 text-primary-500" />
                 )}

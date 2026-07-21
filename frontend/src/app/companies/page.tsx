@@ -45,7 +45,7 @@ export default function CompaniesPage() {
               <div className="flex items-center gap-3 mb-3">
                 <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center">
                   {company.logo ? (
-                    <img src={company.logo} alt="" className="h-12 w-12 rounded-lg object-cover" />
+                    <img src={company.logo} alt={`${company.company_name} logo`} className="h-12 w-12 rounded-lg object-cover" />
                   ) : (
                     <HiOutlineOfficeBuilding className="h-6 w-6 text-blue-600" />
                   )}
