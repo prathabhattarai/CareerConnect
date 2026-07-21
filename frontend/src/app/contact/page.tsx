@@ -4,7 +4,7 @@ import { useState } from 'react';
 import toast from 'react-hot-toast';
 import {
   HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker,
-  HiOutlineClock, HiOutlineSend, HiOutlineChatAlt2,
+  HiOutlineClock, HiOutlineArrowRight, HiOutlineChatAlt2,
   HiOutlineQuestionMarkCircle, HiOutlineBriefcase,
 } from 'react-icons/hi';
 
@@ -173,7 +173,7 @@ export default function ContactPage() {
                 </div>
                 <button type="submit" disabled={sending} className="btn-primary">
                   {sending ? 'Sending...' : (
-                    <><HiOutlineSend className="h-4 w-4" /> Send Message</>
+                    <><HiOutlineArrowRight className="h-4 w-4" /> Send Message</>
                   )}
                 </button>
               </form>
