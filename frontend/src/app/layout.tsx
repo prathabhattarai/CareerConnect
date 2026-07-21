@@ -9,7 +9,34 @@ const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
 export const metadata: Metadata = {
   title: 'CareerConnect — Job & Internship Portal',
-  description: 'Connect with top companies and discover opportunities that match your skills. Find your dream job or hire exceptional talent.',
+  description:
+    'Connect with top companies and discover opportunities that match your skills. Find your dream job or hire exceptional talent.',
+  keywords: [
+    'jobs',
+    'internships',
+    'career',
+    'hiring',
+    'employment',
+    'job portal',
+    'Nepal jobs',
+    'tech jobs',
+  ],
+  authors: [{ name: 'CareerConnect' }],
+  openGraph: {
+    title: 'CareerConnect — Job & Internship Portal',
+    description:
+      'Connect with top companies and discover opportunities that match your skills.',
+    url: 'https://careerconnect-orpin.vercel.app',
+    siteName: 'CareerConnect',
+    type: 'website',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CareerConnect — Job & Internship Portal',
+    description:
+      'Connect with top companies and discover opportunities that match your skills.',
+  },
   other: {
     'google-site-verification': '8V9h_v_4zuMte3CTgM1vdv70nQPxUh7WfFTlNtiC2kk',
   },

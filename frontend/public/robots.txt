@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /student/
+Disallow: /company/
+Disallow: /api/
+
+Sitemap: https://careerconnect-orpin.vercel.app/sitemap.xml

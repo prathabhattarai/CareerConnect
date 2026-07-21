@@ -89,6 +89,39 @@ export default function JobDetailPage() {
   if (loading) return <div className="max-w-5xl mx-auto px-4 py-8"><SkeletonProfile /></div>;
   if (!job) return null;
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'JobPosting',
+    title: job.title,
+    description: job.description,
+    datePosted: job.created_at,
+    validThrough: job.application_deadline,
+    employmentType: job.job_type?.toUpperCase().replace('_', '-'),
+    hiringOrganization: {
+      '@type': 'Organization',
+      name: job.company?.company_name || 'Company',
+      sameAs: 'https://careerconnect-orpin.vercel.app',
+    },
+    jobLocation: {
+      '@type': 'Place',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: job.location || 'Remote',
+        addressCountry: 'NP',
+      },
+    },
+    baseSalary: job.salary_min || job.salary_max ? {
+      '@type': 'MonetaryAmount',
+      currency: 'USD',
+      value: {
+        '@type': 'QuantitativeValue',
+        minValue: job.salary_min || undefined,
+        maxValue: job.salary_max || undefined,
+        unitText: 'YEAR',
+      },
+    } : undefined,
+  };
+
   const formatType = (t: string) => t?.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
   const formatSalary = () => {
     if (!job.salary_min && !job.salary_max) return 'Not specified';
@@ -99,6 +132,10 @@ export default function JobDetailPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Back link */}
       <button onClick={() => router.back()} className="inline-flex items-center gap-1.5 text-sm font-medium text-surface-500 hover:text-primary-600 mb-6 transition-colors">
         <HiOutlineArrowLeft className="h-4 w-4" />
