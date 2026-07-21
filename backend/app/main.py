@@ -4,6 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from app.core.config import get_settings
 from app.core.database import engine, Base
 from app.routes import api_router
+import os
 
 settings = get_settings()
 
@@ -21,6 +22,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+os.makedirs("uploads/resumes", exist_ok=True)
+os.makedirs("uploads/logos", exist_ok=True)
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 app.include_router(api_router, prefix="/api")
