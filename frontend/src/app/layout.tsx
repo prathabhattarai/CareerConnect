@@ -10,6 +10,9 @@ const inter = Inter({ subsets: ['latin'], display: 'swap' });
 export const metadata: Metadata = {
   title: 'CareerConnect — Job & Internship Portal',
   description: 'Connect with top companies and discover opportunities that match your skills. Find your dream job or hire exceptional talent.',
+  other: {
+    'google-site-verification': '8V9h_v_4zuMte3CTgM1vdv70nQPxUh7WfFTlNtiC2kk',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
